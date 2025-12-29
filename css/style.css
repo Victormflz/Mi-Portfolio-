@@ -1,0 +1,306 @@
+:root {
+    --bg-color: #1a1614;       /* Café muy oscuro */
+    --text-main: #f5f5dc;      /* Vainilla */
+    --text-dim: #a89a8e;       /* Café claro apagado */
+    --accent: #e5c3a6;         /* Café con leche */
+    --card-hover: rgba(45, 38, 34, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dim);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* El efecto de luz de fondo */
+.spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.layout-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+/* HEADER FIJO (IZQUIERDA) */
+.main-header {
+    width: 45%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6rem 0;
+}
+/* Contenedor del logo intermedio */
+.logo-mid-container {
+    display: flex;
+    justify-content: flex-start; /* Alineado a la izquierda como el texto */
+    align-items: center;
+    flex-grow: 1; /* Esto hace que ocupe todo el espacio sobrante en el medio */
+    padding: 2rem 0;
+}
+
+.mid-logo {
+    width: 180px; /* Ajusta el tamaño según tu preferencia */
+    height: auto;
+    opacity: 0.8;
+    /* Tinte ligero para que el logo parezca color vainilla */
+    filter: sepia(0.2) brightness(1.1); 
+    transition: all 0.5s ease;
+}
+
+.mid-logo:hover {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+    filter: sepia(0);
+}
+
+.name-title {
+    font-family: 'Fugaz One', cursive;
+    font-size: 3rem;
+    color: var(--text-main);
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.job-title {
+    color: var(--text-main);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.short-bio {
+    max-width: 320px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+.nav-menu {
+    margin-top: 4rem;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-line {
+    width: 30px;
+    height: 1px;
+    background-color: var(--text-dim);
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main);
+}
+
+.nav-link:hover .nav-line, .nav-link.active .nav-line {
+    width: 60px;
+    background-color: var(--text-main);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #e5c3a6; /* El color crema de tu diseño */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}
+
+/* CONTENIDO (DERECHA) */
+.main-content {
+    width: 50%;
+    padding: 6rem 0;
+}
+
+.content-section {
+    margin-bottom: 8rem;
+}
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* EXPERIENCIA Y PROYECTOS */
+.exp-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s;
+}
+
+.exp-year {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding-top: 0.3rem;
+}
+
+.exp-details h3 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.skill-tags span {
+    background: rgba(229, 195, 166, 0.1);
+    color: var(--accent);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* TARJETAS DE PROYECTO */
+.project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.project-card:hover {
+    background-color: var(--card-hover);
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.05);
+}
+
+.project-card h3 {
+    transition: color 0.3s;
+}
+
+.project-card:hover h3 {
+    color: var(--accent);
+}
+
+.final-footer {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        flex-direction: column;
+    }
+    .main-header {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 4rem 0 2rem 0;
+    }
+    .main-content {
+        width: 100%;
+        padding: 0;
+    }
+    .nav-menu {
+        display: none; /* Ocultamos el menú en móvil por simplicidad */
+    }
+}
+@media (max-width: 768px) {
+    /* 1. Cambiamos el header a columna para apilar elementos */
+    .main-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra todo horizontalmente */
+        text-align: center;
+    }
+
+    /* 2. Reordenamiento con la propiedad 'order' */
+    
+    .social-links {
+        order: 1; /* Primero arriba: Iconos */
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .main-header > div:first-child {
+        order: 2; /* Segundo: Nombre, título y bio */
+    }
+
+    .logo-mid-container {
+        order: 3; /* Tercero: Tu foto/logo abajo */
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    /* Ajustes visuales para móvil */
+    .nav-menu {
+        display: none; /* Opcional: Ocultar menú en móvil si quieres diseño limpio como la imagen */
+    }
+
+    .mid-logo {
+        max-width: 150px; /* Ajusta el tamaño de tu foto en móvil */
+        height: auto;
+    }
+
+    /* Aseguramos que el contenido principal siga después */
+    .main-content {
+        order: 4;
+    }
+}
